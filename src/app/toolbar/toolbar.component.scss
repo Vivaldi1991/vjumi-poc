@@ -1,0 +1,94 @@
+.person {
+    padding: 0;
+
+    & .mat-icon {
+        width: 20px;
+    }
+}
+
+.search-bar {
+    background-color: cadetblue;
+    display: flex;
+    justify-content: center;
+
+    @media (min-width: 600px) {
+        justify-content: space-between;
+        padding-right: 15px;
+    } 
+}
+
+.search-bar__button {
+    border-radius: 4px;
+    margin: 0 2px;
+}
+
+.search-info {
+    background-color: #008eaa;
+    font-style: italic;
+}
+
+.search-close {
+    background-color: #ed7f10;
+}
+
+.select-logo {
+    background-color: white;
+    min-width: 250px;
+    display: flex;
+
+    img {
+        display: block;
+        margin: auto;
+    }
+}
+
+@media (max-width: 599px) {
+    .select-logo {
+        display: none;
+    }
+}
+
+.toolbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #1a2c4a;
+    padding-right: 15px;
+
+    @media (min-width: 600px) {
+        justify-content: space-between;
+
+        &__logo {
+            background-image: url(https://my-select.de/wp-content/themes/mySELECT/images/logo_myselect.svg);
+            display: inline-block;
+            width: 240px;
+            height: 50px;
+            transform: scale(1);
+            background-position: left center;
+            background-repeat: no-repeat;
+        }    
+    }
+
+    &__controls {
+        display: flex;
+        align-items: center;
+
+        @media (min-width: 600px) {
+            &-item {
+                padding: 0 10px;
+    
+                &:last-child {
+                    padding: 0 0 0 16px;
+                }
+            }
+        }
+    }
+}
+
+
+@media (min-width: 600px) {
+    .toolbar__controls-item + .toolbar__controls-item, 
+    .toolbar__controls-item:first-child {
+        border-left: solid 1px currentColor;
+    }
+}
