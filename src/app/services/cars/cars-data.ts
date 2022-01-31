@@ -1,4 +1,4 @@
-[
+export default [
     {
         "img": "https://www.auto-data.net/images/f52/Volkswagen-Kaefer.jpg",
         "hersteller": "BMW",
@@ -13,7 +13,7 @@
         "zylinder": 6,
         "ventile_pro_brennraum": 4,
         "motorart": "Diesel",
-        "kba-nummern": "0005CTB",
+        "kba_nummern": "0005CTB",
         "motorcodes": "B57 D30 A",
         "interne_nummer": "PT132802"
     },
@@ -31,7 +31,7 @@
         "zylinder": 6,
         "ventile_pro_brennraum": 4,
         "motorart": "Diesel",
-        "kba-nummern": "0006CTB",
+        "kba_nummern": "0006CTB",
         "motorcodes": "C23 A32 A",
         "interne_nummer": "BF321802"
     },
@@ -49,7 +49,7 @@
         "zylinder": 4,
         "ventile_pro_brennraum": 2,
         "motorart": "Motorenbenzin",
-        "kba-nummern": "0006CTX",
+        "kba_nummern": "0006CTX",
         "motorcodes": "B64 D40 A",
         "interne_nummer": "PT342802"
     }

@@ -1,0 +1,42 @@
+<mat-toolbar color="primary" class="search-bar">
+    <div class="select-logo">
+        <img src="https://www.select.ag/wp-content/uploads/2020/02/SELECT_AG_Icon_Webseite.png" height="32" width="32">
+    </div>
+
+    <div class="search-bar__input">
+        <mat-form-field>
+            <mat-placeholder class="placeholder">Meine Auswahl</mat-placeholder>
+            <input type="text" 
+                    matInput 
+                    [formControl]="myControl" 
+                    [matAutocomplete]="auto"
+                    (click)="$event.stopPropagation()">
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                  {{option.modell}}
+                </mat-option>
+            </mat-autocomplete>
+
+            <span matSuffix >
+                <!-- <button mat-icon-button 
+                        type="button" 
+                        class="search-bar__button">
+                    <mat-icon>arrow_drop_down</mat-icon>            
+                </button> -->
+                <button type="button" 
+                        mat-icon-button 
+                        class="search-bar__button search-bar__button-info"
+                        (click)="$event.stopPropagation();getInfo()">
+                    <span>i</span>
+                </button>
+                <button type="button" 
+                        mat-icon-button 
+                        class="search-bar__button search-bar__button-close"
+                        (click)="$event.stopPropagation();clearSearch()">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </span>
+        </mat-form-field>
+    </div>
+
+</mat-toolbar>

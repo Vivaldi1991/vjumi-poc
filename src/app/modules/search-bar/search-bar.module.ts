@@ -14,6 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { CarsService } from 'src/app/services/cars/cars.service';
 
 @NgModule({
     declarations: [   
@@ -33,6 +34,9 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
         MatAutocompleteModule,
         ReactiveFormsModule,
         MatSlideToggleModule
+    ],
+    providers: [
+        CarsService
     ],
     exports: [ 
         SearchBarComponent
