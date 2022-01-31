@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ToolbarComponent } from './toolbar.component';
+import { SearchBarComponent } from './search-bar.component';
 import { CommonModule } from '@angular/common'
 
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -8,15 +8,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatMenuModule } from '@angular/material/menu';
-import {MatTabsModule} from '@angular/material/tabs';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
     declarations: [   
-        ToolbarComponent, 
+        SearchBarComponent, 
     ],
     imports: [
         CommonModule,
@@ -30,10 +31,11 @@ import { ReactiveFormsModule } from '@angular/forms';
         MatFormFieldModule,
         MatInputModule,
         MatAutocompleteModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        MatSlideToggleModule
     ],
     exports: [ 
-        ToolbarComponent
+        SearchBarComponent
     ],
 })
-export class ToolbarModule {}
+export class SearchBarModule {}

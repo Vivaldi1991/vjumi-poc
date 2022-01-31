@@ -191,6 +191,7 @@ body {
   --text-warn-color: #{$light-primary-text};
   --text-warn-lighter-color: #{$dark-primary-text};
   --text-warn-darker-color: #{$light-primary-text};
+  background-color: #f7f7f9;
 }   
 $mat-warn: (
   main: #ff0000,

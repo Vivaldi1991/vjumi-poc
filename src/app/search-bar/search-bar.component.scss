@@ -1,0 +1,49 @@
+.search-bar {
+    display: flex;
+    justify-content: center;
+
+    @media (min-width: 600px) {
+        justify-content: space-between;
+        padding-left: 0;
+    } 
+
+    &__input {
+        font-size: 16px;
+        height: 70%;
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+    &__button {
+        border-radius: 4px;
+        margin: 0 2px;
+
+        &-info {
+            background-color: var(--primary-lighter-color);
+            color: var(--text-primary-color);
+            font-style: italic;
+        }
+
+        &-close {
+            background-color: #ed7f10;
+        }
+    }
+}
+
+.select-logo {
+    background-color: white;
+    min-width: 250px;
+    display: flex;
+    height: 100%;
+
+    img {
+        display: block;
+        margin: auto;
+    }
+}
+
+@media (max-width: 599px) {
+    .select-logo {
+        display: none;
+    }
+}
