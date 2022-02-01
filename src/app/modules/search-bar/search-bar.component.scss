@@ -5,27 +5,43 @@
     @media (min-width: 600px) {
         justify-content: space-between;
         padding-left: 0;
-    } 
+    }
 
     &__input {
         font-size: 16px;
         height: 70%;
         padding: 5px;
         border-radius: 5px;
+        background-color: var(--accent-darker-color);
+        color: var(--text-accent-darker-color);
+
+        & .placeholder {
+            color: var(--accent-lighter-color);
+        }
+
+        & .mat-form-field-suffix {
+            align-self: center;
+        }
+
+        .mat-form-field-suffix {
+            align-self: center;
+        }
     }
 
     &__button {
         border-radius: 4px;
         margin: 0 2px;
+        font-weight: 900;
 
         &-info {
-            background-color: var(--primary-lighter-color);
-            color: var(--text-primary-color);
+            background-color: var(--text-accent-color);
+            color: var(--text-primary-lighter-color);
             font-style: italic;
         }
 
         &-close {
-            background-color: #ed7f10;
+            background-color: var(--warn-color);
+            color: var(--text-warn-color);
         }
     }
 }
@@ -46,4 +62,8 @@
     .select-logo {
         display: none;
     }
+}
+
+::ng-deep .mat-form-field-underline {
+    display: none;
 }

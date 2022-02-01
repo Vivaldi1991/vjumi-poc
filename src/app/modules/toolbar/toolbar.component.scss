@@ -6,16 +6,11 @@
     }
 }
 
-.mat-badge-content {
-    background: red;
-    color: blue;
-}
-
 .toolbar {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background-color: #1a2c4a;
+    background-color:  var(--primary-color);
     padding-right: 15px;
 
     @media (min-width: 600px) {
@@ -35,6 +30,7 @@
     &__controls {
         display: flex;
         align-items: center;
+        color: var(--accent-lighter-text-color);
 
         @media (min-width: 600px) {
             &-item {
