@@ -147,6 +147,7 @@ body {
   --text-primary-color: #{$light-primary-text};
   --text-primary-lighter-color: #{$dark-primary-text};
   --text-primary-darker-color: #{$light-primary-text};
+  background-color: #{$light-background};
 }   
 $mat-primary: (
   main: #1a2b4a,

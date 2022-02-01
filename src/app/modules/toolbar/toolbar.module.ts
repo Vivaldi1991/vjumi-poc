@@ -15,6 +15,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { MatCardModule } from '@angular/material/card';
+import { EventMessagesService } from 'src/app/services/event-messages/event-messages.service';
 
 @NgModule({
     declarations: [   
@@ -38,5 +39,8 @@ import { MatCardModule } from '@angular/material/card';
     exports: [ 
         ToolbarComponent
     ],
+    providers: [
+        EventMessagesService
+    ]
 })
 export class ToolbarModule {}

@@ -8,6 +8,7 @@
 
     &__header {
         justify-content: space-between;
+        align-items: center;
     }
 
     &__category {
@@ -18,10 +19,21 @@
     &__title.mat-card-title {
         margin-bottom: 0;
     }
+
+    &__table {
+        font-size: 10;
+        line-height: 12px;
+    }
 }
 
-::ng-deep {
-    &.mat-menu-panel.car-menu {
-        max-width: 30vh;
-    }
+.cdk-overlay-connected-position-bounding-box {
+    left: 0 !important;
+}
+
+@media only screen and (max-width: 600px) {
+    .menu-screen {
+      position: fixed;
+      max-width: unset !important;
+      width: 100vw;
+    } 
 }

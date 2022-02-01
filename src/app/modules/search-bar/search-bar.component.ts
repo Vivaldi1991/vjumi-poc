@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { map, Observable, startWith } from 'rxjs';
-import { CarsService, ICars } from 'src/app/services/cars/cars.service';
+import { CarsService, ICars } from 'src/app/services/cars-service/cars.service';
 
 @Component({
     selector: 'app-search-bar',
