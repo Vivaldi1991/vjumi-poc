@@ -1,0 +1,22 @@
+<mat-card class="feedback" (click)="$event.stopPropagation();">
+    <mat-card-title>FEEDBACK</mat-card-title>
+
+    <mat-form-field class="feedback__input" appearance="outline">
+        <mat-label>Ihre Nachricht</mat-label>
+        <textarea 
+            matInput 
+            placeholder="Ex. It makes me feel..."
+            cdkTextareaAutosize
+            cdkAutosizeMinRows="2"
+            cdkAutosizeMaxRows="6"
+        >
+        </textarea>
+      </mat-form-field>
+
+      Zur Bearbeitung sowie fur Ruckfragen und Antworten enthalt das Feedback Ihre Kontaktdaten.
+      Vielen Dank fur ihre Zusammenarbeit!
+    <mat-card-actions>
+        <button mat-button class="feedback__send">Senden</button>
+        <button mat-button class="feedback__abort">Abbrechen</button>
+      </mat-card-actions>
+</mat-card>

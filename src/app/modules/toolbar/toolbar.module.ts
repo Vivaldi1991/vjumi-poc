@@ -13,10 +13,12 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
     declarations: [   
-        ToolbarComponent, 
+        ToolbarComponent, FeedbackComponent, 
     ],
     imports: [
         CommonModule,
@@ -30,7 +32,8 @@ import { ReactiveFormsModule } from '@angular/forms';
         MatFormFieldModule,
         MatInputModule,
         MatAutocompleteModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        MatCardModule
     ],
     exports: [ 
         ToolbarComponent

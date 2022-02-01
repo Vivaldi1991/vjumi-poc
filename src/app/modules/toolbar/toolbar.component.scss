@@ -50,3 +50,11 @@
         border-left: solid 1px currentColor;
     }
 }
+
+::ng-deep {
+    &.mat-menu-panel.feedback-menu {
+        width: 40vh;
+        min-width: initial;
+        max-width: initial;
+    }
+}

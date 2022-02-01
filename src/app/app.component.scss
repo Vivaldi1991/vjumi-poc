@@ -1,0 +1,22 @@
+::ng-deep {
+    &.mat-card .mat-menu-content {
+        box-shadow: none;
+    }
+
+    &.mat-card-header {
+        width: 100%;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    &.mat-card-title {
+        margin-bottom: 0;
+        font-weight: 600;
+    }
+
+    
+    &.mat-form-field-appearance-outline .mat-form-field-wrapper {
+        margin: 0;
+        padding: 0;
+    }
+}

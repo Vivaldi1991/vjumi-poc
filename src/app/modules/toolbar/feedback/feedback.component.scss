@@ -1,0 +1,20 @@
+.feedback {
+    box-shadow: none;
+
+    .mat-card-actions {
+        color: var(--text-primary-color);
+    }
+}
+
+.feedback__input {
+    width: 100%;
+}
+
+.feedback__send {
+    background-color: var(--accent-color);
+}
+
+.feedback__abort {
+    background-color: var(--warn-color);
+
+}

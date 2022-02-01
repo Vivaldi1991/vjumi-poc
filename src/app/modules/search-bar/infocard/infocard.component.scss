@@ -6,33 +6,22 @@
         font-weight: bold;
     }
 
-    .mat-card-header .mat-card-title {
-        margin-bottom: 0;
-        font-weight: 600;
+    &__header {
+        justify-content: space-between;
     }
 
+    &__category {
+        color: var(--text-primary-color);
+        background-color: var(--accent-color);
+    }
+
+    &__title.mat-card-title {
+        margin-bottom: 0;
+    }
 }
-
-
-.car-info__header {
-    justify-content: space-between;
-}
-
-.car-info__category {
-    color: var(--text-primary-color);
-    background-color: var(--accent-color);
-}
-
 
 ::ng-deep {
-    &.mat-card-header {
-        width: 100%;
-        justify-content: space-around;
-        align-items: center;
-    }
-
     &.mat-menu-panel.car-menu {
         max-width: 30vh;
     }
-
 }
