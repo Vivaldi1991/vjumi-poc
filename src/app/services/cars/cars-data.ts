@@ -1,6 +1,6 @@
 export default [
     {
-        "img": "https://www.auto-data.net/images/f52/Volkswagen-Kaefer.jpg",
+        "img": "https://rng-t.com/upload/iblock/94f/94fbe965737caf4754e9d4d1e9aaca71.jpeg",
         "hersteller": "BMW",
         "modell": "BMW X5 (G05, F95)",
         "baujahr": "08/2018..07/2020",

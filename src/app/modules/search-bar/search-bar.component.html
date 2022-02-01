@@ -26,8 +26,15 @@
                 <button type="button" 
                         mat-icon-button 
                         class="search-bar__button search-bar__button-info"
-                        (click)="$event.stopPropagation();getInfo()">
+                        (click)="$event.stopPropagation();getInfo()"
+                        [matMenuTriggerFor]="menu"
+                        [disabled]="!myControl.value">
                     <span>i</span>
+                    <mat-menu #menu="matMenu" class="car-menu">
+                        <ng-template matMenuContent>
+                            <app-infocard [carInfo]="myControl.value"></app-infocard>
+                        </ng-template>
+                    </mat-menu>
                 </button>
                 <button type="button" 
                         mat-icon-button 

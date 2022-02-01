@@ -7,7 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToolbarModule } from './modules/toolbar/toolbar.module';
 import { SearchBarModule } from './modules/search-bar/search-bar.module';
 import { TotalsListModule } from './modules/totals-list/totals-list.module';
-
 @NgModule({
   declarations: [
     AppComponent,

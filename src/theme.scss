@@ -188,9 +188,9 @@ body {
   --warn-color: #df8334;
   --warn-lighter-color: #f5dac2;
   --warn-darker-color: #d26621;
-  --text-warn-color: #{$dark-primary-text};
-  --text-warn-lighter-color: #{$dark-primary-text};
-  --text-warn-darker-color: #{$light-primary-text};
+  --text-warn-color: #{$light-primary-text};
+  --text-warn-lighter-color: #{$light-primary-text};
+  --text-warn-darker-color: #{$dark-primary-text};
 }   
 $mat-warn: (
   main: #df8334,
@@ -198,7 +198,7 @@ $mat-warn: (
   darker: #d26621,
   200: #df8334, // For slide toggle,
   contrast : (
-    main: $dark-primary-text,
+    main: $light-primary-text,
     lighter: $dark-primary-text,
     darker: $light-primary-text,
   )

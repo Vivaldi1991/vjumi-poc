@@ -1,0 +1,87 @@
+
+<mat-card class="car-info" (click)="$event.stopPropagation();">
+    <mat-card-header class="car-info__header">
+        <button mat-icon-button color="warn">
+            <mat-icon>favorite</mat-icon>
+        </button>
+        <mat-card-title class="car-info__title">
+            {{carInfo.modell}}
+        </mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src={{carInfo.img}}>
+    <mat-card-content>
+        <table>
+            <tr>
+                <td>Hersteller:</td>
+                <td>{{carInfo.hersteller}}</td>
+            </tr>
+            <tr>
+                <td>Modell:</td>
+                <td>{{carInfo.modell}}</td>
+            </tr>
+            <tr>
+                <td>Baujahr:</td>
+                <td>{{carInfo.baujahr}}</td>
+            </tr>
+            <tr class="car-info__category">
+                <td colspan="2">Technische Daten</td>
+            </tr>
+            <tr>
+                <td>Leistung:</td>
+                <td>{{carInfo.leistung}}</td>
+            </tr>
+            <tr>
+                <td>Kraftsoffart:</td>
+                <td>{{carInfo.kraftsoffart}}</td>
+            </tr>
+            <tr>
+                <td>Kraftsoffaufbereitung:</td>
+                <td>{{carInfo.kraftsoffaufbereitung}}</td>
+            </tr>
+            <tr>
+                <td>Hibraum:</td>
+                <td>{{carInfo.hibraum}}</td>
+            </tr>
+            <tr>
+                <td>Aufbauart:</td>
+                <td>{{carInfo.aufbauart}}</td>
+            </tr>
+            <tr>
+                <td>Antribsart:</td>
+                <td>{{carInfo.antribsart}}</td>
+            </tr>
+
+            <tr>
+                <td>Zylinder:</td>
+                <td>{{carInfo.zylinder}}</td>
+            </tr>
+            <tr>
+                <td>Ventile pro brennraum:</td>
+                <td>{{carInfo.ventile_pro_brennraum}}</td>
+            </tr>
+            <tr>
+                <td>Motorart:</td>
+                <td>{{carInfo.motorart}}</td>
+            </tr>
+
+            <tr class="car-info__category">
+                <td colspan="2">Nummern</td>
+            </tr>
+
+            <tr>
+                <td>Kba nummern:</td>
+                <td>{{carInfo.kba_nummern}}</td>
+            </tr>
+            
+            <tr>
+                <td>Motorcodes:</td>
+                <td>{{carInfo.motorcodes}}</td>
+            </tr>
+            
+            <tr>
+                <td>Interne nummer:</td>
+                <td>{{carInfo.interne_nummer}}</td>
+            </tr>
+        </table>
+    </mat-card-content>
+</mat-card>

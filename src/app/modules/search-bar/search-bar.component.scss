@@ -12,19 +12,12 @@
         height: 70%;
         padding: 5px;
         border-radius: 5px;
-        background-color: var(--accent-darker-color);
-        color: var(--text-accent-darker-color);
+        background-color: var(--text-accent-color);
+        color: var(--text-accent-lighter-color);
 
         & .placeholder {
-            color: var(--accent-lighter-color);
-        }
-
-        & .mat-form-field-suffix {
-            align-self: center;
-        }
-
-        .mat-form-field-suffix {
-            align-self: center;
+            color: var(--primary-lighter-color);
+            font-weight: 600;
         }
     }
 
@@ -33,15 +26,18 @@
         margin: 0 2px;
         font-weight: 900;
 
+        & span {
+            color: var(--text-primary-color);
+        }
+
         &-info {
-            background-color: var(--text-accent-color);
-            color: var(--text-primary-lighter-color);
+            background-color: var(--accent-color);
             font-style: italic;
         }
 
         &-close {
             background-color: var(--warn-color);
-            color: var(--text-warn-color);
+            color: var(--text-primary-color);
         }
     }
 }

@@ -1,0 +1,38 @@
+.car-info {
+    box-shadow: none;
+    padding: 0 20px 10px;
+
+    td:first-child {
+        font-weight: bold;
+    }
+
+    .mat-card-header .mat-card-title {
+        margin-bottom: 0;
+        font-weight: 600;
+    }
+
+}
+
+
+.car-info__header {
+    justify-content: space-between;
+}
+
+.car-info__category {
+    color: var(--text-primary-color);
+    background-color: var(--accent-color);
+}
+
+
+::ng-deep {
+    &.mat-card-header {
+        width: 100%;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    &.mat-menu-panel.car-menu {
+        max-width: 30vh;
+    }
+
+}
