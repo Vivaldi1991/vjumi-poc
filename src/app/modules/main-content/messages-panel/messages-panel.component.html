@@ -2,19 +2,33 @@
     <div class="messages-panel__header">
         <div class="messages-panel__title">
             BENACHRICHTIGUNGGEN
-        </div> 
+        </div>
         <div class="messages-panel__actions">
-            <button mat-icon-button>
+            <button mat-icon-button [matMenuTriggerFor]="filtersMenu">
                 <mat-icon>filter_list</mat-icon>
             </button>
             <button mat-icon-button>
                 <mat-icon>refresh</mat-icon>
             </button>
-        </div>    
+        </div>
     </div>
 
     <div class="messages-panel__content">
         <app-message-item *ngFor="let msg of messages" [message]="msg"></app-message-item>
     </div>
-
 </div>
+
+
+<mat-menu #filtersMenu="matMenu">
+    <div class="filter-menu" (click)="$event.stopPropagation()">
+        <p><mat-checkbox>Neue Nachrichten anzeigen</mat-checkbox></p>
+        <p><mat-checkbox>Bearbeitete Nachrichten anzeigen</mat-checkbox></p>
+        <mat-divider></mat-divider>
+        <p>Nachrichtentypen</p>
+        <p><mat-checkbox>Terminanafragen</mat-checkbox></p>
+        <p><mat-checkbox>Zusatzverkaufe</mat-checkbox></p>
+        <p><mat-checkbox>Fehlfunktionen</mat-checkbox></p>
+        <p><mat-checkbox>Onboarding</mat-checkbox></p>
+    </div>
+
+</mat-menu>

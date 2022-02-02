@@ -9,29 +9,46 @@
         <div mat-card-avatar *ngIf="message.type == 'error'" class="message-item__type message-item__type--error">
             <mat-icon>warning_outline</mat-icon>
         </div>
-        <mat-card-title class="message-item__title">
+
+        <mat-card-title class="message-item__title" [ngClass]="{'message-item--unreaded': !message.isReaded}">
             <div class="message-item__title-text">
                 {{message.title}}
             </div>
-            <div class="message-item__date">
-                {{message.date}}
-            </div>
         </mat-card-title>
-        <mat-card-subtitle class="message-item__subtitle">
+        <mat-card-subtitle class="message-item__subtitle" [ngClass]="{'message-item--unreaded': !message.isReaded}">
             {{message.from}}
         </mat-card-subtitle>
+        <div class="message-item__date" [ngClass]="{'message-item--unreaded': !message.isReaded}">
+            {{message.date}}
+        </div>
     </mat-card-header>
-    <mat-card-content class="message-item__content">
+    <mat-card-content class="message-item__content" [ngClass]="{'message-item--unreaded': !message.isReaded}">
         <span class="message-item__text">
             {{message.message}}
         </span>
     </mat-card-content>
     <div class="message-item__details">
-        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <button mat-icon-button [matMenuTriggerFor]="messageMenu" aria-label="Example icon-button with a menu">
             <mat-icon inline>more_vert</mat-icon>Details anzeigen
         </button>
-        <mat-menu #menu="matMenu">
-            soon
+        <mat-menu #messageMenu="matMenu">
+            <button mat-menu-item>
+                <mat-icon>directions_car</mat-icon>
+                <span>Zum Kundenfahrezeug wechseln</span>
+            </button>
+            <button mat-menu-item>
+                <mat-icon>person_outline</mat-icon>
+                <span>Zum Kunden wechseln</span>
+            </button>
+            <button mat-menu-item>
+                <mat-icon>mail_outline</mat-icon>
+                <span>Terminhinweis an Kunden senden</span>
+            </button>
+            <mat-divider></mat-divider>
+            <button mat-menu-item>
+                <mat-icon>check</mat-icon>                
+                <span>Als bearbeitet markieren</span>
+            </button>
         </mat-menu>
     </div>
 </mat-card>

@@ -10,6 +10,9 @@ import { MessagesService } from 'src/app/services/messages-service/messages.serv
 import { MessageItemComponent } from './message-item/message-item.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [   
@@ -24,6 +27,9 @@ import { MatMenuModule } from '@angular/material/menu';
         MatIconModule,
         MatCardModule,
         MatMenuModule,
+        MatDividerModule,
+        MatCheckboxModule,
+        ReactiveFormsModule
     ],
     providers: [
         EventMessagesService,

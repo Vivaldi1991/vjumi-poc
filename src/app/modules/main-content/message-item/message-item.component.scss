@@ -3,6 +3,11 @@
     font-size: 12px;
     border-radius: initial;
     padding: 8px;
+    margin-bottom: 16px;
+
+    &--unreaded {
+        font-weight: 900;
+    }
 
     &__text {
         display: -webkit-box;
@@ -28,8 +33,7 @@
     }
         
     &__header {
-        justify-content: flex-start;
-        align-items: center;
+        justify-content: space-between;
         width: 100%;
     }
     
@@ -37,7 +41,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-
+        color: var(--text-primary-color);
             
         &--success {
             background-color: #2f671f;
