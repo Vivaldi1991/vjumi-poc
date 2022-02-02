@@ -14,6 +14,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TotalsListModule } from './totals-list/totals-list.module';
+import { DashboardTabsModule } from './dashboard-tabs/dashboard-tabs.module';
 
 @NgModule({
     declarations: [   
@@ -32,6 +33,7 @@ import { TotalsListModule } from './totals-list/totals-list.module';
         MatCheckboxModule,
         ReactiveFormsModule,
         TotalsListModule,
+        DashboardTabsModule
     ],
     providers: [
         EventMessagesService,
