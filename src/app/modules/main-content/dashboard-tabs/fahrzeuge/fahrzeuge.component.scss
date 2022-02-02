@@ -1,0 +1,14 @@
+table.mat-table {
+    width: 100%;
+}
+
+.mat-row:hover {
+    background-color: var(--text-accent-color);
+}
+
+::ng-deep {
+    &.mat-badge-accent .mat-badge-content {
+        background-color: #457837;
+        color: white;
+    }
+}

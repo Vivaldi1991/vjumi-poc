@@ -1,0 +1,69 @@
+<div class="fahrzeuge-table">
+    <table mat-table class="full-width-table" matSort aria-label="Elements">
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+        <td mat-cell *matCellDef="let row">
+            <div *ngIf="row.status == 'verbunden'" class="fahrzeuge-status fahrzeuge-status__verbunden">
+                <mat-icon  class="badge-succes" matBadge="+" matBadgeSize="small" matBadgeColor="accent" matBadgePosition="below"> directions_car</mat-icon>
+            </div>
+            <div *ngIf="row.status == 'getrennt'" class="fahrzeuge-status fahrzeuge-status__getrennt">
+                <mat-icon matBadge="-" matBadgeSize="small" matBadgeColor="warn" matBadgePosition="below"> directions_car</mat-icon>
+            </div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="fahrzeug">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Fahrzeug</th>
+        <td mat-cell *matCellDef="let row">{{row.fahrzeug}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="kunde">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Kunde</th>
+        <td mat-cell *matCellDef="let row">{{row.kunde}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="kennzeichen">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Kennzeichen</th>
+        <td mat-cell *matCellDef="let row">{{row.kennzeichen}}</td>
+      </ng-container>
+     
+      <ng-container matColumnDef="km_stand">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Km stand</th>
+        <td mat-cell *matCellDef="let row">{{row.km_stand}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="nachster_service">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Nachster service</th>
+        <td mat-cell *matCellDef="let row">{{row.nachster_service}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="fehler">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Fehlere</th>
+        <td mat-cell *matCellDef="let row">{{row.fehler}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="letzte_meldung">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Letzte meldung</th>
+        <td mat-cell *matCellDef="let row">{{row.letzte_meldung}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="menu">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <mat-icon>more_vert</mat-icon>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator #paginator
+        [length]="dataSource?.data?.length"
+        [pageIndex]="0"
+        [pageSize]="10"
+        [pageSizeOptions]="[5, 10, 20]"
+        aria-label="Select page">
+    </mat-paginator>
+  </div>
+  

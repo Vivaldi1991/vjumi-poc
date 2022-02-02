@@ -4,123 +4,134 @@ import { MatSort } from '@angular/material/sort';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
 
-export interface AdaptersTableItem {
+export interface FahrzeugTableItem {
     id: number;
     status: string;
-    imei: string;
-    anbieter: string;
     fahrzeug: string;
     kunde: string;
     kennzeichen: string;
-    vin: string;
+    km_stand: number;
+    nachster_service: string;
+    fehler: number;
+    letzte_meldung: string;
 }
 
-const ADAPTERS_DATA: AdaptersTableItem[] = [
+const FAHREZUG_DATA: FahrzeugTableItem[] = [
     { 
         id: 1, 
         status: 'verbunden', 
-        imei: "045ab04b-4066-4856-b6e4-89a58dd85d5c", 
-        anbieter: "bmw", 
         fahrzeug: "BMW X7 (G07, F95)", 
         kunde: "Daniel Trost",
         kennzeichen: "MYK DT 16E",
-        vin: "WBATA619009G98456"
+        km_stand: 150,
+        nachster_service: "HU",
+        fehler: 5,
+        letzte_meldung: "29.03.21 08:53",
     },
     { 
         id: 2, 
         status: 'verbunden', 
-        imei: "345ab04b-4567-1233-b6e4-67a58dd85d5c", 
-        anbieter: "bmw", 
         fahrzeug: "BMW X5 (F95)", 
         kunde: "Martin Frost",
         kennzeichen: "DEK DT 26E",
-        vin: "WBATS619345G98456"
+        km_stand: 23,
+        nachster_service: "Auto service",
+        fehler: 2,
+        letzte_meldung: "23.01.21 18:33",
     },
     { 
         id: 3, 
         status: 'verbunden', 
-        imei: "325ab04b-5674-7988-b6e4-89a78gg88d5c", 
-        anbieter: "OPEL", 
         fahrzeug: "OPEL ZAFIRA B", 
         kunde: "Wolf Kungen",
         kennzeichen: "RAK KL 34E",
-        vin: "WBATA876549G98456"
+        km_stand: 34,
+        nachster_service: "Auto repairs",
+        fehler: 0,
+        letzte_meldung: "14.08.20 17:33",
     },
     { 
         id: 4, 
         status: 'getrennt', 
-        imei: "045ab04b-4066-4856-b6e4-89a58dd85d5c", 
-        anbieter: "bmw", 
         fahrzeug: "BMW X5 (G05, F95)", 
         kunde: "Kalr Wolf",
         kennzeichen: "QAZ DT 67E",
-        vin: "WBATF4562219G98456"
+        km_stand: 34,
+        nachster_service: "Auto repairs",
+        fehler: 0,
+        letzte_meldung: "14.08.20 17:33",
     },
     { 
         id: 5, 
         status: 'getrennt', 
-        imei: "045ab04b-4066-4856-b6e4-89a58dd85d5c", 
-        anbieter: "OPEL", 
         fahrzeug: "OPEL ASTRA H", 
         kunde: "Marla Singer",
         kennzeichen: "WER FD 56E",
-        vin: "WOLOA634563G98456"
+        km_stand: 34,
+        nachster_service: "Auto repairs",
+        fehler: 0,
+        letzte_meldung: "14.08.20 17:33",
     },
     { 
-        id: 6, 
-        status: 'verbunden', 
-        imei: "045ab04b-4066-4856-b6e4-89a58dd85d5c", 
-        anbieter: "bmw", 
+        id: 6,
+        status: 'getrennt', 
         fahrzeug: "BMW X7 (G07, F95)", 
         kunde: "Daniel Trost",
         kennzeichen: "MYK DT 16E",
-        vin: "WBATA619009G98456"
+        km_stand: 34,
+        nachster_service: "Auto repairs",
+        fehler: 0,
+        letzte_meldung: "14.08.20 17:33",
     },
     { 
         id: 7, 
         status: 'verbunden', 
-        imei: "345ab04b-4567-1233-b6e4-67a58dd85d5c", 
-        anbieter: "bmw", 
         fahrzeug: "BMW X5 (F95)", 
         kunde: "Martin Frost",
         kennzeichen: "DEK DT 26E",
-        vin: "WBATS619345G98456"
+        km_stand: 34,
+        nachster_service: "Auto repairs",
+        fehler: 0,
+        letzte_meldung: "14.08.20 17:33",
     },
     { 
         id: 8, 
         status: 'verbunden', 
-        imei: "325ab04b-5674-7988-b6e4-89a78gg88d5c", 
-        anbieter: "OPEL", 
         fahrzeug: "OPEL ZAFIRA B", 
         kunde: "Wolf Kungen",
         kennzeichen: "RAK KL 34E",
-        vin: "WBATA876549G98456"
+        km_stand: 12,
+        nachster_service: "Auto repairs",
+        fehler: 1,
+        letzte_meldung: "04.08.21 12:33",
     },
     { 
         id: 9, 
-        status: 'getrennt', 
-        imei: "045ab04b-4066-4856-b6e4-89a58dd85d5c", 
-        anbieter: "bmw", 
+        status: 'getrennt',
         fahrzeug: "BMW X5 (G05, F95)", 
         kunde: "Kalr Wolf",
         kennzeichen: "QAZ DT 67E",
-        vin: "WBATF4562219G98456"
+        km_stand: 56,
+        nachster_service: "Auto repairs",
+        fehler: 0,
+        letzte_meldung: "14.11.20 17:33",
     },
     { 
         id: 10, 
-        status: 'getrennt', 
-        imei: "045ab04b-4066-4856-b6e4-89a58dd85d5c", 
-        anbieter: "OPEL", 
+        status: 'getrennt',
         fahrzeug: "OPEL ASTRA H", 
         kunde: "Marla Singer",
         kennzeichen: "WER FD 56E",
-        vin: "WOLOA634563G98456"
+        km_stand: 125,
+        nachster_service: "Auto repairs",
+        fehler: 2,
+        letzte_meldung: "11.11.20 14:33",
     },
 ];
 
 
-export class AdaptersTableDataSource extends DataSource<AdaptersTableItem> {
-    data: AdaptersTableItem[] = ADAPTERS_DATA;
+export class FahrzeugTableDataSource extends DataSource<FahrzeugTableItem> {
+    data: FahrzeugTableItem[] = FAHREZUG_DATA;
     paginator: MatPaginator | undefined;
     sort: MatSort | undefined;
 
@@ -133,7 +144,7 @@ export class AdaptersTableDataSource extends DataSource<AdaptersTableItem> {
      * the returned stream emits new items.
      * @returns A stream of the items to be rendered.
      */
-    connect(): Observable<AdaptersTableItem[]> {
+    connect(): Observable<FahrzeugTableItem[]> {
         if (this.paginator && this.sort) {
             // Combine everything that affects the rendered data into one update
             // stream for the data-table to consume.
@@ -156,7 +167,7 @@ export class AdaptersTableDataSource extends DataSource<AdaptersTableItem> {
      * Paginate the data (client-side). If you're using server-side pagination,
      * this would be replaced by requesting the appropriate data from the server.
      */
-    private getPagedData(data: AdaptersTableItem[]): AdaptersTableItem[] {
+    private getPagedData(data: FahrzeugTableItem[]): FahrzeugTableItem[] {
         if (this.paginator) {
             const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
             return data.splice(startIndex, this.paginator.pageSize);
@@ -169,22 +180,22 @@ export class AdaptersTableDataSource extends DataSource<AdaptersTableItem> {
      * Sort the data (client-side). If you're using server-side sorting,
      * this would be replaced by requesting the appropriate data from the server.
      */
-    private getSortedData(data: AdaptersTableItem[]): AdaptersTableItem[] {
+    private getSortedData(data: FahrzeugTableItem[]): FahrzeugTableItem[] {
         if (!this.sort || !this.sort.active || this.sort.direction === '') {
             return data;
         }
-
         return data.sort((a, b) => {
             const isAsc = this.sort?.direction === 'asc';
             switch (this.sort?.active) {
                 case 'id': return compare(+a.id, +b.id, isAsc);
                 case 'status': return compare(a.status, b.status, isAsc);
-                case 'imei': return compare(a.imei, b.imei, isAsc);
-                case 'anbieter': return compare(a.anbieter, b.anbieter, isAsc);
                 case 'fahrzeug': return compare(a.fahrzeug, b.fahrzeug, isAsc);
                 case 'kunde': return compare(a.kunde, b.kunde, isAsc);
                 case 'kennzeichen': return compare(a.kennzeichen, b.kennzeichen, isAsc);
-                case 'vin': return compare(a.vin, b.vin, isAsc);
+                case 'km_stand': return compare(+a.fahrzeug, +b.fahrzeug, isAsc);
+                case 'nachster_service': return compare(a.kunde, b.kunde, isAsc);
+                case 'fehler': return compare(+a.kennzeichen, +b.kennzeichen, isAsc);
+                case 'letzte_meldung': return compare(a.kennzeichen, b.kennzeichen, isAsc);
 
                 default: return 0;
             }

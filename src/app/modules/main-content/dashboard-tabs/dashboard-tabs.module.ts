@@ -14,11 +14,14 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FahrzeugeComponent } from './fahrzeuge/fahrzeuge.component';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
   declarations: [
     DashboardTabsComponent,
-    AdaptersComponent
+    AdaptersComponent,
+    FahrzeugeComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +36,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatToolbarModule,
     MatSidenavModule,
     MatIconModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatBadgeModule
   ],
   exports: [
     DashboardTabsComponent
