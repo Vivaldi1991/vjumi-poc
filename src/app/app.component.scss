@@ -1,3 +1,28 @@
+body {
+    background-color: var(--text-primary-darker-color);
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--text-primary-color); 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--primary-lighter-color);
+    border-radius: 3px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);; 
+}
+
 ::ng-deep {
     &.mat-card .mat-menu-content {
         box-shadow: none;

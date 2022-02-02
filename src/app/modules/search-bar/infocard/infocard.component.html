@@ -1,7 +1,7 @@
 
-<mat-card class="car-info" (click)="$event.stopPropagation();">
+<mat-card class="car-info" (click)="$event.stopPropagation();" *ngIf="carInfo.modell">
     <mat-card-header class="car-info__header">
-        <button mat-icon-button color="warn">
+        <button mat-icon-button color="warn" class="car-info__favorite">
             <mat-icon>favorite</mat-icon>
         </button>
         <mat-card-title class="car-info__title">
@@ -85,3 +85,6 @@
         </table>
     </mat-card-content>
 </mat-card>
+<div *ngIf="!carInfo.modell">
+    not found
+</div>

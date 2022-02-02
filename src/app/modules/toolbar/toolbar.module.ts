@@ -16,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { MatCardModule } from '@angular/material/card';
 import { EventMessagesService } from 'src/app/services/event-messages/event-messages.service';
+import { MessagesService } from 'src/app/services/messages-service/messages.service';
 
 @NgModule({
     declarations: [   
@@ -40,7 +41,8 @@ import { EventMessagesService } from 'src/app/services/event-messages/event-mess
         ToolbarComponent
     ],
     providers: [
-        EventMessagesService
+        EventMessagesService,
+        MessagesService,
     ]
 })
 export class ToolbarModule {}

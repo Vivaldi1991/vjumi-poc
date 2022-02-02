@@ -1,0 +1,16 @@
+.messages-side-panel {
+    width: 100%;
+    height: 100%;
+    border: none;
+    padding: 6px 6px 9px 3px;
+    background-color: var(--text-primary-darker-color);
+
+    @media (min-width: 599px) {
+        width: 30%;
+        min-width: 350px;
+    }
+}
+
+.mat-sidenav-container {
+    height: calc(100% - 128px);
+}

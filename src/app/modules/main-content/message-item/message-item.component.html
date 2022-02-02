@@ -1,0 +1,37 @@
+<mat-card class="message-item">
+    <mat-card-header class="message-item__header">
+        <div mat-card-avatar *ngIf="message.type == 'success'" class="message-item__type message-item__type--success">
+            <mat-icon>check_circle_outline</mat-icon>
+        </div>
+        <div mat-card-avatar *ngIf="message.type == 'info'" class="message-item__type message-item__type--info">
+            <mat-icon>error_outline</mat-icon>
+        </div>
+        <div mat-card-avatar *ngIf="message.type == 'error'" class="message-item__type message-item__type--error">
+            <mat-icon>warning_outline</mat-icon>
+        </div>
+        <mat-card-title class="message-item__title">
+            <div class="message-item__title-text">
+                {{message.title}}
+            </div>
+            <div class="message-item__date">
+                {{message.date}}
+            </div>
+        </mat-card-title>
+        <mat-card-subtitle class="message-item__subtitle">
+            {{message.from}}
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="message-item__content">
+        <span class="message-item__text">
+            {{message.message}}
+        </span>
+    </mat-card-content>
+    <div class="message-item__details">
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon inline>more_vert</mat-icon>Details anzeigen
+        </button>
+        <mat-menu #menu="matMenu">
+            soon
+        </mat-menu>
+    </div>
+</mat-card>

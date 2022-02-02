@@ -1,5 +1,11 @@
-<mat-sidenav-container class="example-container">
-    <mat-sidenav #messagesSidePanel mode="side" position="end">Start content</mat-sidenav>
+<mat-sidenav-container>
+    <mat-sidenav #messagesSidePanel 
+        mode="side" 
+        position="end"
+        class="messages-side-panel"
+    >
+        <app-messages-panel></app-messages-panel>
+    </mat-sidenav>
     Implicit main content    Implicit main content
     Implicit main content
     Implicit main content

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { map, Observable, startWith } from 'rxjs';
-import { CarsService, ICars } from 'src/app/services/cars-service/cars.service';
+import { CarsService, ICar } from 'src/app/services/cars-service/cars.service';
 
 @Component({
     selector: 'app-search-bar',
@@ -11,8 +11,8 @@ import { CarsService, ICars } from 'src/app/services/cars-service/cars.service';
 
 export class SearchBarComponent implements OnInit {
     public myControl = new FormControl();
-    public options!: ICars[];
-    public filteredOptions!: Observable<ICars[]>;
+    public options!: ICar[];
+    public filteredOptions!: Observable<ICar[]>;
 
     constructor(private carsService: CarsService) {
         this.setOptions();
@@ -26,20 +26,20 @@ export class SearchBarComponent implements OnInit {
         );
     }
 
-    public displayFn(user: ICars): string {
-        return user && user.modell ? user.modell : '';
-    }
-
-    public getInfo() {
-        console.log(this.myControl.value);
+    public displayFn(car: ICar): string {
+        return car && car.modell ? car.modell : '';
     }
 
     public clearSearch() {
         this.myControl.setValue("");
     }
 
+    public setClosest() {
+        const currentValue = this.myControl.value();
+        console.log(currentValue);
+    }
 
-    private _filter(name: string): ICars[] {
+    private _filter(name: string): ICar[] {
         const filterValue = name.toLowerCase();
         return this.options.filter(option => option.modell.toLowerCase().includes(filterValue));
     }

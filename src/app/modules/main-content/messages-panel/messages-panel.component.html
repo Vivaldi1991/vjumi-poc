@@ -1,0 +1,20 @@
+<div class="messages-panel">
+    <div class="messages-panel__header">
+        <div class="messages-panel__title">
+            BENACHRICHTIGUNGGEN
+        </div> 
+        <div class="messages-panel__actions">
+            <button mat-icon-button>
+                <mat-icon>filter_list</mat-icon>
+            </button>
+            <button mat-icon-button>
+                <mat-icon>refresh</mat-icon>
+            </button>
+        </div>    
+    </div>
+
+    <div class="messages-panel__content">
+        <app-message-item *ngFor="let msg of messages" [message]="msg"></app-message-item>
+    </div>
+
+</div>

@@ -1,17 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-infocard',
-  templateUrl: './infocard.component.html',
-  styleUrls: ['./infocard.component.scss']
+    selector: 'app-infocard',
+    templateUrl: './infocard.component.html',
+    styleUrls: ['./infocard.component.scss']
 })
-export class InfocardComponent implements OnInit {
+export class InfocardComponent {
 
-  @Input() carInfo: any;
-  
-  constructor() { }
+    @Input() carInfo: any;
 
-  ngOnInit(): void {
-  }
-
+    constructor() { }
 }

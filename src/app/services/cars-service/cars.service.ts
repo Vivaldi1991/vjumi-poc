@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import cars from './cars-data';
 
-export interface ICars {
+export interface ICar {
     img: string,
     hersteller: string,
     modell: string,
@@ -31,7 +31,7 @@ export class CarsService {
      */
     private carsSpec = cars;
 
-    public getCarsSpecList(): ICars[] {
+    public getCarsSpecList(): ICar[] {
         return cars;
     }
 }

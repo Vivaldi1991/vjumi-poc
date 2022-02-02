@@ -11,9 +11,7 @@ export class MainContentComponent {
     @ViewChild('messagesSidePanel') messagesSidePanel: any;
 
     constructor(private eventMessagesService: EventMessagesService) {
-
         this.eventMessagesService.subscribe("messages-side-panel-toggle", () => this.messagesSidePanel.toggle());
-
     }
 
 }
