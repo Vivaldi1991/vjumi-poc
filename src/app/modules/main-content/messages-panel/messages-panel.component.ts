@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { IMessage, MessagesService } from 'src/app/services/messages-service/messages.service';
 
 @Component({
@@ -12,7 +11,6 @@ export class MessagesPanelComponent {
 
     constructor(
         private messagesService: MessagesService,
-        private fb: FormBuilder
     ) {
         this.messages = this.messagesService.messagesList;
     }

@@ -1,0 +1,15 @@
+<div class="totals-item" [ngStyle]="{'border-color': total.color}">
+    <div class="totals-item__title">
+        {{total.title}}
+    </div>
+    <div class="totals-item__content">
+        <div class="totals-item__number" [ngStyle]="{'border-color': total.color}">
+            {{total.number}}
+        </div>
+        <div class="totals-item__items">
+            <p class="totals-item__item" *ngFor="let item of total.items">
+                {{item.name + ": " + item.value}}
+            </p>
+        </div>
+    </div>
+</div>
