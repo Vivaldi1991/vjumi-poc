@@ -38,10 +38,9 @@ body {
         margin-bottom: 0;
         font-weight: 600;
     }
+}
 
-    
-    &.mat-form-field-appearance-outline .mat-form-field-wrapper {
-        margin: 0;
-        padding: 0;
-    }
+.mat-form-field-appearance-outline .mat-form-field-wrapper {
+    margin: 0;
+    padding: 0;
 }

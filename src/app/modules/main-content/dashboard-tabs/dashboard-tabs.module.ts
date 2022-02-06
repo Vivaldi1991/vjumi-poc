@@ -16,6 +16,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FahrzeugeComponent } from './fahrzeuge/fahrzeuge.component';
 import { MatBadgeModule } from '@angular/material/badge';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatSidenavModule,
     MatIconModule,
     MatSlideToggleModule,
-    MatBadgeModule
+    MatBadgeModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,  
   ],
   exports: [
     DashboardTabsComponent
