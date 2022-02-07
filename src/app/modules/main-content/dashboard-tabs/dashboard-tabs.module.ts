@@ -19,34 +19,38 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
-  declarations: [
-    DashboardTabsComponent,
-    AdaptersComponent,
-    FahrzeugeComponent
-  ],
-  imports: [
-    CommonModule,
-    MatTabsModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatSlideToggleModule,
-    MatBadgeModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,  
-  ],
-  exports: [
-    DashboardTabsComponent
-  ]
+    declarations: [
+        DashboardTabsComponent,
+        AdaptersComponent,
+        FahrzeugeComponent
+    ],
+    imports: [
+        CommonModule,
+        MatTabsModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatSortModule,
+        LayoutModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatIconModule,
+        MatSlideToggleModule,
+        MatBadgeModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatDividerModule,
+        MatMenuModule,
+    ],
+    exports: [
+        DashboardTabsComponent
+    ]
 })
 export class DashboardTabsModule { }

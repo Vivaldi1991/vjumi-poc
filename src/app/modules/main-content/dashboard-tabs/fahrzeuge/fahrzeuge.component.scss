@@ -5,3 +5,17 @@ table.mat-table {
 .mat-row:hover {
     background-color: var(--text-accent-color);
 }
+
+.circle {
+    background-color: var(--warn-color);
+    line-height: 25px;
+    color: var(--text-warn-color);
+    border-radius: 50%;
+}
+
+
+.fehler {
+    width: 25px;
+    height: 25px;
+    text-align: center;
+}

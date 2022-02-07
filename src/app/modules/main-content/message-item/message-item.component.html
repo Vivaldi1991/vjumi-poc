@@ -28,9 +28,10 @@
         </span>
     </mat-card-content>
     <div class="message-item__details">
-        <button mat-icon-button [matMenuTriggerFor]="messageMenu" aria-label="Example icon-button with a menu">
+        <button mat-icon-button [matMenuTriggerFor]="messageMenu">
             <mat-icon inline>more_vert</mat-icon>Details anzeigen
         </button>
+        
         <mat-menu #messageMenu="matMenu">
             <button mat-menu-item>
                 <mat-icon>directions_car</mat-icon>
