@@ -16,17 +16,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FahrzeugeComponent } from './fahrzeuge/fahrzeuge.component';
 import { MatBadgeModule } from '@angular/material/badge';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatMenuModule } from '@angular/material/menu';
+import { NewItemModalComponent } from './new-item-modal/new-item-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
     declarations: [
         DashboardTabsComponent,
         AdaptersComponent,
-        FahrzeugeComponent
+        FahrzeugeComponent,
+        NewItemModalComponent
     ],
     imports: [
         CommonModule,
@@ -48,6 +51,8 @@ import { MatMenuModule } from '@angular/material/menu';
         MatInputModule,
         MatDividerModule,
         MatMenuModule,
+        FormsModule,
+        MatDialogModule
     ],
     exports: [
         DashboardTabsComponent
