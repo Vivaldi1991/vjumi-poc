@@ -1,7 +1,8 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
+import { debounceTime, distinctUntilChanged, fromEvent } from 'rxjs';
 import { AdaptersTableDataSource, AdaptersTableItem } from './adapters.datasource';
 
 @Component({
@@ -15,6 +16,8 @@ export class AdaptersComponent {
     @ViewChild(MatSort) sort!: MatSort;
     @ViewChild(MatTable) table!: MatTable<AdaptersTableItem>;
     dataSource: AdaptersTableDataSource;
+    @ViewChild('filter') filter!: ElementRef;
+
 
     /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
     displayedColumns = ['status', 'imei', 'anbieter', 'fahrzeug', 'kunde', 'kennzeichen', 'vin', 'menu'];
@@ -27,5 +30,14 @@ export class AdaptersComponent {
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
         this.table.dataSource = this.dataSource;
+        this.dataSource.filter = this.filter.nativeElement.value;
+
+        fromEvent(this.filter.nativeElement, 'keyup')
+            .pipe(debounceTime(600))
+            .pipe(distinctUntilChanged())
+            .subscribe(() => {
+                if (!this.dataSource) { return; }
+                this.dataSource.filter = this.filter.nativeElement.value;
+            });
     }
 }

@@ -2,7 +2,7 @@ import { DataSource } from '@angular/cdk/collections';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { map } from 'rxjs/operators';
-import { Observable, of as observableOf, merge } from 'rxjs';
+import { Observable, of as observableOf, merge, BehaviorSubject } from 'rxjs';
 
 export interface AdaptersTableItem {
     id: number;
@@ -123,7 +123,12 @@ export class AdaptersTableDataSource extends DataSource<AdaptersTableItem> {
     data: AdaptersTableItem[] = ADAPTERS_DATA;
     paginator: MatPaginator | undefined;
     sort: MatSort | undefined;
-
+    _filterChange = new BehaviorSubject('');
+    get filter(): string { return this._filterChange.value; }
+    set filter(filter: string) {        
+        this._filterChange.next(filter); 
+    }
+    
     constructor() {
         super();
     }
@@ -137,9 +142,9 @@ export class AdaptersTableDataSource extends DataSource<AdaptersTableItem> {
         if (this.paginator && this.sort) {
             // Combine everything that affects the rendered data into one update
             // stream for the data-table to consume.
-            return merge(observableOf(this.data), this.paginator.page, this.sort.sortChange)
+            return merge(observableOf(this.data), this.paginator.page, this.sort.sortChange, this._filterChange)
                 .pipe(map(() => {
-                    return this.getPagedData(this.getSortedData([...this.data]));
+                    return this.getFilteredData(this.getPagedData(this.getSortedData([...this.data])));
                 }));
         } else {
             throw Error('Please set the paginator and sort on the data source before connecting.');
@@ -189,6 +194,22 @@ export class AdaptersTableDataSource extends DataSource<AdaptersTableItem> {
                 default: return 0;
             }
         });
+    }
+
+    private getFilteredData(data: AdaptersTableItem[]): AdaptersTableItem[] {        
+        if (!this.filter) {
+            return data;
+        }
+    
+        const returnedData = data.slice().filter((item: AdaptersTableItem) => {
+            const fieldsToSearch = item.status + item.imei + item.anbieter + item.fahrzeug
+                + item.kunde + item.kennzeichen + item.vin;
+
+            const searchStr = fieldsToSearch.toLowerCase();
+            return searchStr.indexOf(this.filter.toLowerCase()) != -1;
+        });
+        
+        return returnedData;
     }
 }
 
