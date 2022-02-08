@@ -1,0 +1,20 @@
+<div id="modal-content-wrapper">
+    <header id="modal-header">
+        <div id="modal-title">{{modalData.title}}</div>
+        <div id="modal-close">
+            <button type="button" 
+                    mat-icon-button 
+                    class="search-bar__button search-bar__button-close"
+                    (click)="closeModal()">
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
+    </header>
+    <section id="modal-body">
+        <ng-template appModalContent></ng-template>
+    </section>
+    <footer id="modal-footer">
+        <button mat-raised-button color="accent">Add</button>
+        <button mat-raised-button color="warn" id="modal-cancel-button" (click)="closeModal()">Cancel</button>
+    </footer>
+</div>

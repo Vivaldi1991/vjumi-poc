@@ -21,15 +21,16 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatMenuModule } from '@angular/material/menu';
-import { NewItemModalComponent } from './new-item-modal/new-item-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import { NewFahrzeugeItemComponent } from './fahrzeuge/new-fahrzeuge-item/new-fahrzeuge-item.component';
+import { NewAdaptersItemComponent } from './adapters/new-adapters-item/new-adapters-item.component';
 @NgModule({
     declarations: [
         DashboardTabsComponent,
         AdaptersComponent,
         FahrzeugeComponent,
-        NewItemModalComponent
+        NewFahrzeugeItemComponent,
+        NewAdaptersItemComponent
     ],
     imports: [
         CommonModule,

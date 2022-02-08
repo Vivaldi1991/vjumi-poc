@@ -9,6 +9,10 @@ body {
     .mat-menu-panel {
         max-width: 400px;
     }
+
+    .mat-dialog-container {
+        padding: 0;
+    }
     
     .table {
         &__actions {
