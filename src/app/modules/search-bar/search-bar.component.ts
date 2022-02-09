@@ -34,11 +34,6 @@ export class SearchBarComponent implements OnInit {
         this.myControl.setValue("");
     }
 
-    public setClosest() {
-        const currentValue = this.myControl.value();
-        console.log(currentValue);
-    }
-
     private _filter(name: string): ICar[] {
         const filterValue = name.toLowerCase();
         return this.options.filter(option => option.modell.toLowerCase().includes(filterValue));
