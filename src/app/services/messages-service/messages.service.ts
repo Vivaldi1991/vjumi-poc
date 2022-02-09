@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import messages from './messages-data';
 
 export interface IMessage {
@@ -21,17 +22,30 @@ export class MessagesService {
      * Todo real fetch on promises
      */
     private __messages: IMessage[] = messages;
-    private __unreadedCount: number = 0;
+    private __unreadedCount = new BehaviorSubject<number>(0);
 
     constructor() {
-        this.__unreadedCount = this.__messages.reduce((prev, current) => current.isReaded ? prev : ++prev, 0);        
+        this.__unreadedCount.next(this.checkUnreadedCount());        
     }
 
     public get messagesList() {
         return this.__messages;
     }
 
-    public get unreadedCount() {
-        return this.__unreadedCount;
+    public getUnreadedCount() {
+        return this.__unreadedCount.asObservable();
+    }
+
+    public readMessage(id: string) {
+        const msg = this.__messages.find(item => item.id == id);
+        
+        if(msg) {
+            msg.isReaded = true;
+            this.__unreadedCount.next(this.checkUnreadedCount());
+        }
+    }
+
+    private checkUnreadedCount() {
+        return this.__messages.reduce((prev, current) => current.isReaded ? prev : ++prev, 0);
     }
 }

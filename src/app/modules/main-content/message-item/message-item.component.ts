@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IMessage } from 'src/app/services/messages-service/messages.service';
+import { IMessage, MessagesService } from 'src/app/services/messages-service/messages.service';
 
 @Component({
     selector: 'app-message-item',
@@ -11,6 +11,12 @@ export class MessageItemComponent {
 
     @Input() public message!: IMessage;
 
-    constructor() { }
+    constructor(
+        private messagesService: MessagesService
+    ) {}
+
+    public readMessage() {
+        this.messagesService.readMessage(this.message.id);
+    }
 
 }

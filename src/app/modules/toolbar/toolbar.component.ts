@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
 import { EventMessagesService } from 'src/app/services/event-messages/event-messages.service';
 import { MessagesService } from 'src/app/services/messages-service/messages.service';
 
@@ -11,15 +8,19 @@ import { MessagesService } from 'src/app/services/messages-service/messages.serv
     styleUrls: ['./toolbar.component.scss']
 })
 
-export class ToolbarComponent {
+export class ToolbarComponent implements OnInit{
 
     public ureadedCount: number = 0;
 
     constructor(
         private eventMessagesService: EventMessagesService,
         private messagesService: MessagesService
-    ) { 
-        this.ureadedCount = this.messagesService.unreadedCount;
+    ) {}
+
+    ngOnInit(): void {
+        this.messagesService.getUnreadedCount().subscribe((cnt: number) => {
+            this.ureadedCount = cnt;
+        });
     }
 
     public toggleMessages() {

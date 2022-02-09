@@ -22,14 +22,13 @@
             {{message.date}}
         </div>
     </mat-card-header>
-    <mat-card-content class="message-item__content" [ngClass]="{'message-item--unreaded': !message.isReaded}">
-        
+    <mat-card-content class="message-item__content" [ngClass]="{'message-item--unreaded': !message.isReaded}" (click)="accordionItem.toggle();readMessage()">
         <cdk-accordion-item
             #accordionItem="cdkAccordionItem"
             class="message-accordion-item"
             role="button"
             tabindex="0">
-            <div class="message-accordion-item-header" (click)="accordionItem.toggle()">
+            <div class="message-accordion-item-header">
                 <span class="message-item__text" [style.display]="accordionItem.expanded ? 'none' : ''">
                     {{message.message}}
                 </span>
