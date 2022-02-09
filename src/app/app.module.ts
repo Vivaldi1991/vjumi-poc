@@ -11,12 +11,14 @@ import { ModalTemplateComponent } from './services/modal-service/modal-template/
 import { ModalContentDirective } from './services/modal-service/modal-directive/modal-content.directive';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { CssPetComponent } from './components/css-pet/css-pet.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         ModalTemplateComponent,
         ModalContentDirective,
+        CssPetComponent,
     ],
     imports: [
         BrowserModule,
