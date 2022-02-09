@@ -141,9 +141,10 @@ export class AdaptersTableDataSource extends DataSource<AdaptersTableItem> {
 
     connect(): Observable<AdaptersTableItem[]> {
         if (this.paginator && this.sort) {
-            return merge(this._filterChange, this.paginator.page, this.sort.sortChange, this._filterChange)
+            return merge(this._dataChange, this.paginator.page, this.sort.sortChange, this._filterChange)
                 .pipe(map(() => {
-                    return this.getFilteredData(this.getPagedData(this.getSortedData([...this.data])));
+                    const filteredData = this.getFilteredData([...this.data]);
+                    return this.getPagedData(this.getSortedData([...filteredData]));
                 }));
         } else {
             throw Error('Please set the paginator and sort on the data source before connecting.');

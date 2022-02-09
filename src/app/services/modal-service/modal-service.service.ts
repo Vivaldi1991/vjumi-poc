@@ -20,6 +20,7 @@ export interface IModalConfig {
     providedIn: 'root'
 })
 export class ModalServiceService {
+    public openedModals: any = [];
 
     public get defaultConfig()  {
         return { 
@@ -45,7 +46,15 @@ export class ModalServiceService {
 
     public openModal(dialogConfig: IModalConfig = this.defaultConfig) {
         const modalDialog = this.matDialog.open(ModalTemplateComponent, dialogConfig);
-        return modalDialog;
+        this.openedModals.push(modalDialog);
+    }
+
+    public closeModal(id: string) {
+        const modal = this.openedModals.find((modal: any) => modal.id === id);
+        
+        if(modal) {
+            modal.close();
+        }
     }
 
 }

@@ -1,1 +1,39 @@
-<p>new-adapters-item works!</p>
+<form [formGroup]="newAdapter" class="new-adapter">
+    <mat-form-field appearance="fill" class="new-adapter__field">
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="status">
+            <mat-option value="verbunden">Verbunden</mat-option>
+            <mat-option value="getrennt">Getrennt</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="new-adapter__field">
+        <mat-label>Imei</mat-label>
+        <input matInput formControlName="imei" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="new-adapter__field">
+        <mat-label>Anbieter</mat-label>
+        <input matInput formControlName="anbieter"/>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="new-adapter__field">
+        <mat-label>Fahrzeug</mat-label>
+        <input matInput formControlName="fahrzeug"/>
+    </mat-form-field>
+    
+    <mat-form-field appearance="fill" class="new-adapter__field">
+        <mat-label>Kunde</mat-label>
+        <input matInput formControlName="kunde"/>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="new-adapter__field">
+        <mat-label>Kennzeichen</mat-label>
+        <input matInput formControlName="kennzeichen"/>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="new-adapter__field">
+        <mat-label>Vin</mat-label>
+        <input matInput formControlName="vin"/>
+    </mat-form-field>
+</form>

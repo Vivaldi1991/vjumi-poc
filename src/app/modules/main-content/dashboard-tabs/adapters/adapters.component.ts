@@ -50,6 +50,9 @@ export class AdaptersComponent {
     openNewItemDialog() {
         const config: IModalConfig = {...this.modalService.defaultConfig};
         config.data.templateRef = NewAdaptersItemComponent;
+        config.id = "newAdapter";
+        config.data.title = "New adapter";
+        config.width = "350px";
         this.modalService.openModal(config)
     }
 }

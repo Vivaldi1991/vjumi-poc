@@ -16,7 +16,7 @@ export class AdaptersDatasourceService {
         return this.__adaptersList;
     }
 
-    public addAdapters(item: AdaptersTableItem) {
+    public addAdapter(item: AdaptersTableItem) {
         const newData = [...this.__adaptersList.data];
         newData.unshift(item);
         this.__adaptersList.data = newData;

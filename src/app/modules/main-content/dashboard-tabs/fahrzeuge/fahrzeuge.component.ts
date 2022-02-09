@@ -47,22 +47,10 @@ export class FahrzeugeComponent {
 
     openDialog(): void {
         const config: IModalConfig = {...this.modalService.defaultConfig};
+        config.id = "newFahrzeuge";
         config.data.templateRef = NewFahrzeugeItemComponent;
         config.data.title = "New fahrzeuge";
         config.width = "650px";
         this.modalService.openModal(config)
-
-        this.fahrzeugDatasourceService.addFahrzeug({
-            id: 31,
-            status: 'getrennt',
-            fahrzeug: "OPEL ASTRA OPC",
-            kunde: "Daniel Trost",
-            kennzeichen: "VBG FD 58Z",
-            km_stand: 125,
-            nachster_service: "Auto repairs",
-            fehler: 2,
-            letzte_meldung: "11.11.20 14:33"}
-        );
-
     }
 }

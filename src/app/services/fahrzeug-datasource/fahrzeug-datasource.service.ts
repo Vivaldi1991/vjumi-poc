@@ -18,7 +18,8 @@ export class FahrzeugDatasourceService {
 
     public addFahrzeug(item: FahrzeugTableItem) {
         const newData = [...this.__fahrzeugList.data];
-        newData.unshift(item);
-        this.__fahrzeugList.data = newData;
+        let maxID = Math.max(...newData.map(el => el.id), 0);
+        newData.unshift({...item, id: ++maxID});
+        this.__fahrzeugList.data = newData;        
     }
 }
