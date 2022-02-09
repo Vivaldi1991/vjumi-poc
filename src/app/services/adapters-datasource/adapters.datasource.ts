@@ -73,7 +73,7 @@ const ADAPTERS_DATA: AdaptersTableItem[] = [
         anbieter: "bmw", 
         fahrzeug: "BMW X7 (G07, F95)", 
         kunde: "Daniel Trost",
-        kennzeichen: "MYK DT 16E",
+        kennzeichen: "MYK FR 16E",
         vin: "WBATA619009G98456"
     },
     { 
@@ -119,10 +119,16 @@ const ADAPTERS_DATA: AdaptersTableItem[] = [
 ];
 
 
-export class AdaptersTableDataSource extends DataSource<AdaptersTableItem> {
-    data: AdaptersTableItem[] = ADAPTERS_DATA;
+export class AdaptersTableDataSource extends DataSource<AdaptersTableItem> {    
     paginator: MatPaginator | undefined;
     sort: MatSort | undefined;
+    
+    _dataChange = new BehaviorSubject([...ADAPTERS_DATA]);
+    get data(): AdaptersTableItem[] { return this._dataChange.value; }
+    set data(data: AdaptersTableItem[]) {        
+        this._dataChange.next(data); 
+    }
+
     _filterChange = new BehaviorSubject('');
     get filter(): string { return this._filterChange.value; }
     set filter(filter: string) {        
@@ -133,16 +139,9 @@ export class AdaptersTableDataSource extends DataSource<AdaptersTableItem> {
         super();
     }
 
-    /**
-     * Connect this data source to the table. The table will only update when
-     * the returned stream emits new items.
-     * @returns A stream of the items to be rendered.
-     */
     connect(): Observable<AdaptersTableItem[]> {
         if (this.paginator && this.sort) {
-            // Combine everything that affects the rendered data into one update
-            // stream for the data-table to consume.
-            return merge(observableOf(this.data), this.paginator.page, this.sort.sortChange, this._filterChange)
+            return merge(this._filterChange, this.paginator.page, this.sort.sortChange, this._filterChange)
                 .pipe(map(() => {
                     return this.getFilteredData(this.getPagedData(this.getSortedData([...this.data])));
                 }));
@@ -151,16 +150,8 @@ export class AdaptersTableDataSource extends DataSource<AdaptersTableItem> {
         }
     }
 
-    /**
-     *  Called when the table is being destroyed. Use this function, to clean up
-     * any open connections or free any held resources that were set up during connect.
-     */
     disconnect(): void { }
 
-    /**
-     * Paginate the data (client-side). If you're using server-side pagination,
-     * this would be replaced by requesting the appropriate data from the server.
-     */
     private getPagedData(data: AdaptersTableItem[]): AdaptersTableItem[] {
         if (this.paginator) {
             const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
@@ -170,10 +161,6 @@ export class AdaptersTableDataSource extends DataSource<AdaptersTableItem> {
         }
     }
 
-    /**
-     * Sort the data (client-side). If you're using server-side sorting,
-     * this would be replaced by requesting the appropriate data from the server.
-     */
     private getSortedData(data: AdaptersTableItem[]): AdaptersTableItem[] {
         if (!this.sort || !this.sort.active || this.sort.direction === '') {
             return data;

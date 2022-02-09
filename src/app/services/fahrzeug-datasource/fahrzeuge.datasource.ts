@@ -77,7 +77,7 @@ const FAHREZUG_DATA: FahrzeugTableItem[] = [
         status: 'getrennt',
         fahrzeug: "BMW X7 (G07, F95)",
         kunde: "Emilia Baumgartner",
-        kennzeichen: "MYK DT 16E",
+        kennzeichen: "MYK FR 16E",
         km_stand: 34,
         nachster_service: "Auto repairs",
         fehler: 0,

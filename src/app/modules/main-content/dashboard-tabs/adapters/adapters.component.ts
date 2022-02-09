@@ -3,8 +3,9 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { debounceTime, distinctUntilChanged, fromEvent } from 'rxjs';
+import { AdaptersDatasourceService } from 'src/app/services/adapters-datasource/adapters-datasource.service';
+import { AdaptersTableDataSource, AdaptersTableItem } from 'src/app/services/adapters-datasource/adapters.datasource';
 import { IModalConfig, ModalServiceService } from 'src/app/services/modal-service/modal-service.service';
-import { AdaptersTableDataSource, AdaptersTableItem } from './adapters.datasource';
 import { NewAdaptersItemComponent } from './new-adapters-item/new-adapters-item.component';
 
 @Component({
@@ -25,9 +26,10 @@ export class AdaptersComponent {
     displayedColumns = ['status', 'imei', 'anbieter', 'fahrzeug', 'kunde', 'kennzeichen', 'vin', 'menu'];
 
     constructor(
-        private modalService: ModalServiceService
+        private modalService: ModalServiceService,
+        private adaptersDatasourceService: AdaptersDatasourceService
     ) {
-        this.dataSource = new AdaptersTableDataSource();
+        this.dataSource = this.adaptersDatasourceService.getadaptersList();
     }
 
     ngAfterViewInit(): void {
@@ -48,7 +50,6 @@ export class AdaptersComponent {
     openNewItemDialog() {
         const config: IModalConfig = {...this.modalService.defaultConfig};
         config.data.templateRef = NewAdaptersItemComponent;
-
         this.modalService.openModal(config)
     }
 }
