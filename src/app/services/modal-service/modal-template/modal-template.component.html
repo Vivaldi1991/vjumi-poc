@@ -14,7 +14,7 @@
         <ng-template appModalContent></ng-template>
     </section>
     <footer id="modal-footer">
-        <button mat-raised-button color="accent">Add</button>
+        <button mat-raised-button *ngFor="let btn of modalData.actions" color={{btn.color}} (click)="btn.action()">{{btn.name}}</button>
         <button mat-raised-button color="warn" id="modal-cancel-button" (click)="closeModal()">Cancel</button>
     </footer>
 </div>

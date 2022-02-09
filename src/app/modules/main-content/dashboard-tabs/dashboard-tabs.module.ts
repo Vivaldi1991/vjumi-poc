@@ -24,6 +24,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { NewFahrzeugeItemComponent } from './fahrzeuge/new-fahrzeuge-item/new-fahrzeuge-item.component';
 import { NewAdaptersItemComponent } from './adapters/new-adapters-item/new-adapters-item.component';
+import { MatSelectModule } from '@angular/material/select';
 @NgModule({
     declarations: [
         DashboardTabsComponent,
@@ -53,7 +54,10 @@ import { NewAdaptersItemComponent } from './adapters/new-adapters-item/new-adapt
         MatDividerModule,
         MatMenuModule,
         FormsModule,
-        MatDialogModule
+        MatDialogModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatSelectModule
     ],
     exports: [
         DashboardTabsComponent

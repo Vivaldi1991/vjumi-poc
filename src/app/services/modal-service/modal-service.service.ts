@@ -3,10 +3,11 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ModalTemplateComponent } from './modal-template/modal-template.component';
 
 export interface IModalConfig {
+    width?: string;
     disableClose: boolean,
     id: string,
-    height: string,
-    width: string,
+    minHeight: string,
+    minWidth: string,
     data: {
         name?: string,
         title?: string,
@@ -26,8 +27,8 @@ export class ModalServiceService {
             ...{
                 disableClose: false,
                 id: "modal-component",
-                height: "350px",
-                width:"600px",
+                minHeight: "350px",
+                minWidth: "600px",
 
                 data: {
                     name: "",

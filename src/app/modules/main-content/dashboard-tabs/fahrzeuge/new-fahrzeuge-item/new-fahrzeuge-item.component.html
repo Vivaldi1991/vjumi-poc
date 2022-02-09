@@ -1,1 +1,44 @@
-<p>new-fahrzeuge-item works!</p>
+<form [formGroup]="newFahrzeuge" class="new-fahrzeuge">
+    <mat-form-field appearance="fill" class="new-fahrzeuge__field">
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="status">
+            <mat-option value="verbunden">Verbunden</mat-option>
+            <mat-option value="getrennt">Getrennt</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="new-fahrzeuge__field">
+        <mat-label>Fahrzeug</mat-label>
+        <input matInput formControlName="fahrzeug" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="new-fahrzeuge__field">
+        <mat-label>Kunde</mat-label>
+        <input matInput formControlName="kunde"/>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="new-fahrzeuge__field">
+        <mat-label>Kennzeichen</mat-label>
+        <input matInput formControlName="kennzeichen"/>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="new-fahrzeuge__field">
+        <mat-label>Km stand</mat-label>
+        <input matInput formControlName="km_stand"/>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="new-fahrzeuge__field">
+        <mat-label>Nachster service</mat-label>
+        <input matInput formControlName="nachster_service"/>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="new-fahrzeuge__field">
+        <mat-label>Fehler</mat-label>
+        <input matInput formControlName="fehler"/>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="new-fahrzeuge__field">
+        <mat-label>Letzte meldung</mat-label>
+        <input matInput formControlName="letzte_meldung"/>
+    </mat-form-field>
+</form>

@@ -2,7 +2,7 @@ import { DataSource } from '@angular/cdk/collections';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { map } from 'rxjs/operators';
-import { Observable, of as observableOf, merge, BehaviorSubject } from 'rxjs';
+import { Observable, of as observableOf, merge, BehaviorSubject, of } from 'rxjs';
 
 export interface FahrzeugTableItem {
     id: number;
@@ -349,11 +349,12 @@ const FAHREZUG_DATA: FahrzeugTableItem[] = [
     },
 ];
 
-
 export class FahrzeugTableDataSource extends DataSource<FahrzeugTableItem> {
-    data: FahrzeugTableItem[] = FAHREZUG_DATA;
-    paginator: MatPaginator | undefined;
-    sort: MatSort | undefined;
+    _dataChange = new BehaviorSubject([...FAHREZUG_DATA]);
+    get data(): FahrzeugTableItem[] { return this._dataChange.value; }
+    set data(data: FahrzeugTableItem[]) {        
+        this._dataChange.next(data); 
+    }
 
     _filterChange = new BehaviorSubject('');
     get filter(): string { return this._filterChange.value; }
@@ -361,38 +362,31 @@ export class FahrzeugTableDataSource extends DataSource<FahrzeugTableItem> {
         this._filterChange.next(filter); 
     }
 
+    paginator: MatPaginator | undefined;
+    sort: MatSort | undefined;
+
     constructor() {
         super();
     }
 
-    /**
-     * Connect this data source to the table. The table will only update when
-     * the returned stream emits new items.
-     * @returns A stream of the items to be rendered.
-     */
     connect(): Observable<FahrzeugTableItem[]> {
         if (this.paginator && this.sort) {
 
-            return merge(observableOf(this.data), this.paginator.page, this.sort.sortChange, this._filterChange)
-                .pipe(map(() => {
-                    return this.getFilteredData(this.getPagedData(this.getSortedData([...this.data]))); // TODO: looks ugly 
+            return merge(this._dataChange, this.paginator.page, this.sort.sortChange, this._filterChange)               
+                .pipe(map(() => {  
+                    const filteredData = this.getFilteredData([...this.data]);                 
+                    return this.getPagedData(this.getSortedData(filteredData)); // TODO: looks ugly 
                 }));
         } else {
             throw Error('Please set the paginator and sort on the data source before connecting.');
         }
     }
 
-    /**
-     *  Called when the table is being destroyed. Use this function, to clean up
-     * any open connections or free any held resources that were set up during connect.
-     */
     disconnect(): void { }
 
-    /**
-     * Paginate the data (client-side). If you're using server-side pagination,
-     * this would be replaced by requesting the appropriate data from the server.
-     */
+
     private getPagedData(data: FahrzeugTableItem[]): FahrzeugTableItem[] {
+            
         if (this.paginator) {
             const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
             return data.splice(startIndex, this.paginator.pageSize);
@@ -401,10 +395,6 @@ export class FahrzeugTableDataSource extends DataSource<FahrzeugTableItem> {
         }
     }
 
-    /**
-     * Sort the data (client-side). If you're using server-side sorting,
-     * this would be replaced by requesting the appropriate data from the server.
-     */
     private getSortedData(data: FahrzeugTableItem[]): FahrzeugTableItem[] {
         if (!this.sort || !this.sort.active || this.sort.direction === '') {
             return data;
@@ -431,9 +421,7 @@ export class FahrzeugTableDataSource extends DataSource<FahrzeugTableItem> {
         if (!this.filter) {
             return data;
         }
-    
-        console.log(this.filter.toLowerCase());        
-        
+            
         const returnedData = data.slice().filter((item: FahrzeugTableItem) => {
             const fieldsToSearch = item.status  + item.fahrzeug + item.kunde + item.kennzeichen
                 + item.km_stand + item.nachster_service + item.fehler + item.letzte_meldung;
@@ -446,7 +434,6 @@ export class FahrzeugTableDataSource extends DataSource<FahrzeugTableItem> {
     }
 }
 
-/** Simple sort comparator for example ID/Name columns (for client-side sorting). */
 function compare(a: string | number, b: string | number, isAsc: boolean): number {
     return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }

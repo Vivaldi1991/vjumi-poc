@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ComponentFactoryResolver, Inject, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { AfterContentInit, ChangeDetectorRef, Component, Inject, ViewChild, ViewContainerRef } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ModalContentDirective } from '../modal-directive/modal-content.directive';
 export interface IModalTemplate {
@@ -10,16 +10,18 @@ export interface IModalTemplate {
     templateUrl: './modal-template.component.html',
     styleUrls: ['./modal-template.component.scss']
 })
-export class ModalTemplateComponent implements OnInit {
+export class ModalTemplateComponent implements AfterContentInit {
     @ViewChild(ModalContentDirective, { static: true }) appModalContent!: ModalContentDirective;
 
     constructor(
         @Inject(MAT_DIALOG_DATA) public modalData: any,
         public dialogRef: MatDialogRef<ModalTemplateComponent>,
         public viewContainerRef: ViewContainerRef,
+        private cd: ChangeDetectorRef,
+
     ) { }
 
-    ngOnInit() {
+    ngAfterContentInit() {
         this.loadComponent();
     }
 
@@ -32,6 +34,7 @@ export class ModalTemplateComponent implements OnInit {
         viewContainerRef.clear();
         const componentRef = viewContainerRef.createComponent<any>(this.modalData.templateRef);
         componentRef.instance.data = this.modalData;
+        this.cd.detectChanges(); 
     }
 
 }

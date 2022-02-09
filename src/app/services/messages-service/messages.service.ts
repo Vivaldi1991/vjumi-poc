@@ -24,9 +24,7 @@ export class MessagesService {
     private __unreadedCount: number = 0;
 
     constructor() {
-        this.__unreadedCount = this.__messages.reduce((prev, current) => current.isReaded ? prev : ++prev, 0);
-        console.log(this.__unreadedCount);
-        
+        this.__unreadedCount = this.__messages.reduce((prev, current) => current.isReaded ? prev : ++prev, 0);        
     }
 
     public get messagesList() {
