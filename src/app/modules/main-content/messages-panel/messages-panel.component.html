@@ -14,7 +14,9 @@
     </div>
 
     <div class="messages-panel__content">
-        <app-message-item *ngFor="let msg of messages" [message]="msg"></app-message-item>
+        <cdk-accordion class="message-accordion">
+            <app-message-item *ngFor="let msg of messages" [message]="msg"></app-message-item>
+        </cdk-accordion>
     </div>
 </div>
 

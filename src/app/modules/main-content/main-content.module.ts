@@ -15,7 +15,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TotalsListModule } from './totals-list/totals-list.module';
 import { DashboardTabsModule } from './dashboard-tabs/dashboard-tabs.module';
-
+import { CdkAccordionModule } from '@angular/cdk/accordion';
 @NgModule({
     declarations: [   
         MainContentComponent, 
@@ -33,7 +33,8 @@ import { DashboardTabsModule } from './dashboard-tabs/dashboard-tabs.module';
         MatCheckboxModule,
         ReactiveFormsModule,
         TotalsListModule,
-        DashboardTabsModule
+        DashboardTabsModule,
+        CdkAccordionModule,
     ],
     providers: [
         EventMessagesService,
