@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { EventMessagesService } from 'src/app/services/event-messages/event-messages.service';
 import { MessagesService } from 'src/app/services/messages-service/messages.service';
 
@@ -11,16 +11,27 @@ import { MessagesService } from 'src/app/services/messages-service/messages.serv
 export class ToolbarComponent implements OnInit{
 
     public ureadedCount: number = 0;
+    public dispalyed: boolean = true;
 
     constructor(
         private eventMessagesService: EventMessagesService,
-        private messagesService: MessagesService
+        private messagesService: MessagesService,
     ) {}
 
     ngOnInit(): void {
         this.messagesService.getUnreadedCount().subscribe((cnt: number) => {
             this.ureadedCount = cnt;
         });
+
+        this.eventMessagesService.subscribe("new-message", () => {
+            this.dispalyed = false;
+
+            setTimeout(() => {
+                this.ureadedCount++;
+                this.dispalyed = true;
+            }, 0);
+        });
+
     }
 
     public toggleMessages() {

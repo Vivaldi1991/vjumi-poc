@@ -102,3 +102,40 @@ body {
         font-weight: 600;
     }
 }
+
+.autorenew,
+.filter_list {
+    transition: transform 1s;
+}
+
+.autorenew:hover {
+    transform: rotate(180deg);
+}
+
+.filter_list:hover {
+    transform: scale(1.3, 1.3);
+}
+
+.notifications-icon {
+    animation-duration: 1s;
+    animation-name: bell-ringing;
+    transform-origin: top center;
+}
+
+@keyframes bell-ringing {
+    0% {
+        transform: rotate(0);
+    }
+
+    25% {
+        transform: rotate(-25deg);
+    }
+
+    50% {
+        transform: rotate(25deg);
+    }
+
+    100% {
+        transform: rotate(0);
+    }
+}

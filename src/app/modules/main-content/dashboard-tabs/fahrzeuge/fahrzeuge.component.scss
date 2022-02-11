@@ -1,5 +1,45 @@
 table.mat-table {
     width: 100%;
+    animation-duration: 250ms;
+    animation-name: expand;
+}
+
+@keyframes expand {
+    0% {
+        transform: scale(1, 0);
+    }
+
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes colorout {
+    0% {
+        background-color: #fff
+    }
+
+    50% {
+        background-color: #ffecc4
+    }
+  
+    100% {
+        background-color: #fff
+    }
+}
+
+@mixin coloroutmxn {
+    @for $i from 1 through 20 {
+        &:nth-child(#{$i}) {
+            animation-delay: #{$i * .1}s;
+        }
+    }
+}
+
+.mat-row {
+    animation-duration: 1500ms;
+    animation-name: colorout;
+    @include coloroutmxn;
 }
 
 .mat-row:hover {

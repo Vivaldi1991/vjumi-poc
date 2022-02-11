@@ -9,16 +9,17 @@ export class EventMessagesService {
     private observer!: Observer<any>;
 
     constructor() {
-        this.observable = new Observable((observer: Observer<any>) => {
+        this.observable = new Observable((observer: Observer<any>) => {            
             this.observer = observer;
         }).pipe(share());
     }
 
     public subscribe(eventName: any, callback: any) {
+        
         const subscriber: Subscription = this.observable
             .pipe(
                 filter(event => {
-                    return event.name = eventName
+                    return event.name === eventName
                 }))
             .subscribe(callback);
 
@@ -26,7 +27,7 @@ export class EventMessagesService {
     }
 
     public emit(event: any) {
-        if (this.observer != null) {
+        if (this.observer != null) {            
             this.observer.next(event);
         }
     }
