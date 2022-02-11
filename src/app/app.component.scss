@@ -13,6 +13,14 @@ body {
     .mat-dialog-container {
         padding: 0;
     }
+
+    .mat-tree-node {
+        min-height: 0;
+
+        &:hover {
+            background: var(--text-primary-color); 
+        }
+    }
     
     .table {
         &__actions {

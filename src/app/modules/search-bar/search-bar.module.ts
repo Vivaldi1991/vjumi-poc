@@ -17,11 +17,14 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { CarsService } from 'src/app/services/cars-service/cars.service';
 import { InfocardComponent } from './infocard/infocard.component';
 import { MatCardModule } from '@angular/material/card';
+import { InfocardTreeComponent } from './infocard-tree/infocard-tree.component';
+import { MatTreeModule } from '@angular/material/tree';
 
 @NgModule({
     declarations: [   
         SearchBarComponent,
-        InfocardComponent 
+        InfocardComponent,
+        InfocardTreeComponent 
     ],
     imports: [
         CommonModule,
@@ -37,7 +40,8 @@ import { MatCardModule } from '@angular/material/card';
         MatAutocompleteModule,
         ReactiveFormsModule,
         MatSlideToggleModule,
-        MatCardModule
+        MatCardModule,
+        MatTreeModule
     ],
     providers: [
         CarsService

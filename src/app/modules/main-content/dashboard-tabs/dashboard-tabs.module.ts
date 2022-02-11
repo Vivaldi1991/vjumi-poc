@@ -25,13 +25,15 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { NewFahrzeugeItemComponent } from './fahrzeuge/new-fahrzeuge-item/new-fahrzeuge-item.component';
 import { NewAdaptersItemComponent } from './adapters/new-adapters-item/new-adapters-item.component';
 import { MatSelectModule } from '@angular/material/select';
+import { FooterComponent } from 'src/app/components/footer/footer.component';
 @NgModule({
     declarations: [
         DashboardTabsComponent,
         AdaptersComponent,
         FahrzeugeComponent,
         NewFahrzeugeItemComponent,
-        NewAdaptersItemComponent
+        NewAdaptersItemComponent,
+        FooterComponent,
     ],
     imports: [
         CommonModule,
