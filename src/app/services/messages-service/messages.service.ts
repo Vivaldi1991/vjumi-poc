@@ -46,7 +46,8 @@ export class MessagesService {
     }
 
     public newMessage() {
-        const randomMessage = this.__messages[Math.floor(Math.random() * this.__messages.length)];        
+        const randomMessage = this.__messages[Math.floor(Math.random() * this.__messages.length)];
+        randomMessage.id = randomMessage.id + Math.floor(Math.random()*100);        
         this.__messages.unshift({...randomMessage, isReaded: false});
     }
 
