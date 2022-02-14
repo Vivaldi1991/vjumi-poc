@@ -18,3 +18,14 @@
 .filter-menu {
     padding: 16px;
 }
+
+.new-item-style-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+    align-items: flex-start;
+}
+  
+.new-item-style-button {
+    margin: 5px;
+}

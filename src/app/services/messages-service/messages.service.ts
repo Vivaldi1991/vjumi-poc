@@ -46,17 +46,8 @@ export class MessagesService {
     }
 
     public newMessage() {
-        this.__messages.push({
-            id: "012189323",
-            type: "success",
-            from: "MYK EG1610 (Eugen Geck)",
-            title: "Adapter verbunden",
-            message: "Deutsches Ipsum Dolor quo lucilius Turnbeutel at, adhuc laboramus sadipscing per Fußball in mei ullum gloriatur. Id Weihnachten recteque accommodare sed. Id nec Krankenschwester argumentum, te melius erroribus vix. Mozart ut amet causae iriure, prodesset Hamburg mea ut. Dicunt virtute suscipit Deutschland no. At nemore scaevola eum. Müller Rice regione malorum efficiendi ius",
-            date: "Gestern, 18:53",
-            isReaded: false
-        });
-
-        
+        const randomMessage = this.__messages[Math.floor(Math.random() * this.__messages.length)];        
+        this.__messages.unshift({...randomMessage, isReaded: false});
     }
 
     private checkUnreadedCount() {

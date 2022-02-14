@@ -7,7 +7,7 @@
             <button mat-icon-button [matMenuTriggerFor]="filtersMenu">
                 <mat-icon class="filter_list">filter_list</mat-icon>
             </button>
-            <button mat-icon-button>
+            <button mat-icon-button (click)="onNewMessageClick()">
                 <mat-icon class="autorenew">autorenew</mat-icon>
             </button>
         </div>
@@ -15,7 +15,15 @@
 
     <div class="messages-panel__content">
         <cdk-accordion class="message-accordion">
-            <app-message-item *ngFor="let msg of messages" [message]="msg"></app-message-item>
+            <app-message-item 
+                *ngFor="let msg of messages" 
+                [message]="msg"
+                [ngClass]="{
+                    'fade_in':favoriteStyle === 'Fade in', 
+                    'rotate':favoriteStyle === 'Rotate',
+                    'fall_top':favoriteStyle === 'Top',
+                    'move_left': favoriteStyle === 'Left'}">
+            </app-message-item>
         </cdk-accordion>
     </div>
 </div>
@@ -31,5 +39,15 @@
         <p><mat-checkbox>Zusatzverkaufe</mat-checkbox></p>
         <p><mat-checkbox>Fehlfunktionen</mat-checkbox></p>
         <p><mat-checkbox>Onboarding</mat-checkbox></p>
+        <mat-divider></mat-divider>
+        <label id="new-item-style-label">Pick your favorite style for new items</label>
+        <mat-radio-group
+            aria-labelledby="new-item-style-label"
+            class="new-item-style-group"
+            [(ngModel)]="favoriteStyle">
+            <mat-radio-button class="new-item-style-button" *ngFor="let style of styles" [value]="style">
+                {{style}}
+            </mat-radio-button>
+        </mat-radio-group>
     </div>
 </mat-menu>

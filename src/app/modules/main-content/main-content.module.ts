@@ -12,10 +12,11 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TotalsListModule } from './totals-list/totals-list.module';
 import { DashboardTabsModule } from './dashboard-tabs/dashboard-tabs.module';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
+import { MatRadioModule } from '@angular/material/radio';
 @NgModule({
     declarations: [   
         MainContentComponent, 
@@ -35,6 +36,8 @@ import { CdkAccordionModule } from '@angular/cdk/accordion';
         TotalsListModule,
         DashboardTabsModule,
         CdkAccordionModule,
+        MatRadioModule,
+        FormsModule
     ],
     providers: [
         EventMessagesService,

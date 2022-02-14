@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { EventMessagesService } from 'src/app/services/event-messages/event-messages.service';
 import { IMessage, MessagesService } from 'src/app/services/messages-service/messages.service';
 
 @Component({
@@ -11,8 +12,16 @@ export class MessagesPanelComponent {
 
     constructor(
         private messagesService: MessagesService,
+        private eventMessagesService: EventMessagesService
     ) {
         this.messages = this.messagesService.messagesList;
     }
 
+    favoriteStyle: string = 'Fade in';
+    styles: string[] = ['Fade in', 'Rotate', 'Top', 'Left'];
+
+    onNewMessageClick() {
+        this.messagesService.newMessage();
+        this.eventMessagesService.emit({ name: "new-message" });
+    }
 }

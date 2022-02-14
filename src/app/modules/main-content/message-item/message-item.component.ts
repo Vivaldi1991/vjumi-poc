@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input, OnInit } from '@angular/core';
 import { IMessage, MessagesService } from 'src/app/services/messages-service/messages.service';
 
 @Component({
@@ -12,7 +12,8 @@ export class MessageItemComponent {
     @Input() public message!: IMessage;
 
     constructor(
-        private messagesService: MessagesService
+        private messagesService: MessagesService,
+        private ref: ElementRef
     ) {}
 
     public readMessage() {
