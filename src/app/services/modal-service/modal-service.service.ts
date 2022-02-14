@@ -52,6 +52,8 @@ export class ModalServiceService {
     public closeModal(id: string) {
         const modal = this.openedModals.find((modal: any) => modal.id === id);
         
+        this.openedModals = [...this.openedModals.filter((modal: any) => modal.id != id)];
+        
         if(modal) {
             modal.close();
         }

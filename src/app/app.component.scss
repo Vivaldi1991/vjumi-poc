@@ -155,24 +155,20 @@ body {
 @keyframes rotate_animation {
     0% {
         transform: rotate(-40deg) translate(0, -100%);
-        opacity: 0;
     }
 
     100% {
         transform: rotate(0) translate(0, 0);
-        opacity: 1;
     }
 }
 
 @keyframes fall_top_animation {
     0% {
         transform: translate(0, -50%);
-        opacity: 0;
     }
 
     100% {
         transform: translate(0, 0);
-        opacity: 1;
     }
 }
 
@@ -184,7 +180,6 @@ body {
 
     100% {
         transform: translate(0, 0);
-        opacity: 1;
     }
 }
 
@@ -202,22 +197,22 @@ body {
     }
 }
 
-.fade_in .message-item {
+.fade_in .message-item.not-readed {
     animation-duration: 1500ms;
     animation-name: colorout;
 }
 
-.fall_top .message-item {
+.fall_top .message-item.not-readed {
     animation-duration: 1500ms;
     animation-name: fall_top_animation;
 }
 
-.rotate .message-item {
+.rotate .message-item.not-readed {
     animation-duration: 1500ms;
     animation-name: rotate_animation;
 }
 
-.move_left .message-item {
+.move_left .message-item.not-readed {
     animation-duration: 1500ms;
     animation-name: move_left_animation;
 }

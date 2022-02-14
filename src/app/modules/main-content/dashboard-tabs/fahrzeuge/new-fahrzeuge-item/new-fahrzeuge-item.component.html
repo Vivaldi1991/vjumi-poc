@@ -5,21 +5,36 @@
             <mat-option value="verbunden">Verbunden</mat-option>
             <mat-option value="getrennt">Getrennt</mat-option>
         </mat-select>
+        <mat-error *ngIf="newFahrzeuge.controls['status'].hasError('required')">
+            This field is required
+        </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill" class="new-fahrzeuge__field">
         <mat-label>Fahrzeug</mat-label>
         <input matInput formControlName="fahrzeug" />
+        <mat-error *ngIf="newFahrzeuge.controls['fahrzeug'].hasError('required')">
+            This field is required
+        </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill" class="new-fahrzeuge__field">
         <mat-label>Kunde</mat-label>
         <input matInput formControlName="kunde"/>
+        <mat-error *ngIf="newFahrzeuge.controls['kunde'].hasError('required')">
+            This field is required
+        </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill" class="new-fahrzeuge__field">
         <mat-label>Kennzeichen</mat-label>
-        <input matInput formControlName="kennzeichen"/>
+        <input matInput formControlName="kennzeichen" placeholder="AAA BB 12"/>   
+        <mat-error *ngIf="newFahrzeuge.controls['kennzeichen'].hasError('required')">
+            This field is required
+        </mat-error>        
+        <mat-error *ngIf="newFahrzeuge.controls['kennzeichen'].hasError('autokennzeichenValidator')">
+            Wrong format. [AAA BB 123] is required
+        </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill" class="new-fahrzeuge__field">

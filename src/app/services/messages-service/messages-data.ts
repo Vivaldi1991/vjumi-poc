@@ -24,7 +24,7 @@ export default [
         "title": "Ein DTC wurde festgestellt",
         "message": "Deutsches Ipsum Dolor quo lucilius Turnbeutel at, adhuc laboramus sadipscing per Fußball in mei ullum gloriatur. Id Weihnachten recteque accommodare sed. Id nec Krankenschwester argumentum, te melius erroribus vix. Mozart ut amet causae iriure, prodesset Hamburg mea ut. Dicunt virtute suscipit Deutschland no. At nemore scaevola eum. Müller Rice regione malorum efficiendi ius",
         "date": "Gestern, 13:43",
-        "isReaded": false
+        "isReaded": true
     },
     {
         "id": "012112323",
@@ -33,7 +33,7 @@ export default [
         "title": "Adapter verbunden",
         "message": "Deutsches Ipsum Dolor quo lucilius Turnbeutel at, adhuc laboramus sadipscing per Fußball in mei ullum gloriatur. Id Weihnachten recteque accommodare sed. Id nec Krankenschwester argumentum, te melius erroribus vix. Mozart ut amet causae iriure, prodesset Hamburg mea ut. Dicunt virtute suscipit Deutschland no. At nemore scaevola eum. Müller Rice regione malorum efficiendi ius",
         "date": "Gestern, 18:53",
-        "isReaded": false
+        "isReaded": true
     },
     {
         "id": "012132453",
@@ -42,7 +42,7 @@ export default [
         "title": "ESP-Leuchte activ",
         "message": "Deutsches Ipsum Dolor quo lucilius Turnbeutel at, adhuc laboramus sadipscing per Fußball in mei ullum gloriatur. Id Weihnachten recteque accommodare sed. Id nec Krankenschwester argumentum, te melius erroribus vix. Mozart ut amet causae iriure, prodesset Hamburg mea ut. Dicunt virtute suscipit Deutschland no. At nemore scaevola eum. Müller Rice regione malorum efficiendi ius",
         "date": "Heute, 12:39",
-        "isReaded": false
+        "isReaded": true
     },    
     {
         "id": "012456123",

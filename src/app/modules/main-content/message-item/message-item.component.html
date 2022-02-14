@@ -1,4 +1,7 @@
-<mat-card class="message-item">
+<mat-card class="message-item" 
+        [ngClass]="{
+            'not-readed': !message.isReaded}"
+        >
     <mat-card-header class="message-item__header">
         <div mat-card-avatar *ngIf="message.type == 'success'" class="message-item__type message-item__type--success">
             <mat-icon>check_circle_outline</mat-icon>
