@@ -48,8 +48,6 @@ export class NewFahrzeugeItemComponent implements OnInit, IModalTemplate {
                 name: 'Add',
                 color: 'accent',
                 action: () => {
-                    
-                    
                     if(Object.values(this.newFahrzeuge?.controls).every(item => item.status === "VALID")) {
                         this.fahrzeugDatasourceService.addFahrzeug(this.newFahrzeuge.value);
                         this.newFahrzeuge.reset();
